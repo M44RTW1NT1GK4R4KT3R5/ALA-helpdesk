@@ -44,12 +44,13 @@ function startup(){
     }
     function belCheck(){
         if (confirm("Heeft u een klacht over ons product Internet en Bellen?")){
-            document.getElementById("b1").innerHTML = "De klant meldt problemen met het Internet en Bellen";
+            document.getElementById("b1").innerHTML = "De klant meldt problemen met Bellen";
             telefoonCheck();
         }else{
             tvCheck();
         }
     }
+
     function telefoonCheck(){
          if (confirm("Hoort u een kiestoon?")) {
             kiestoon = "Hoort een kiestoon";
@@ -73,9 +74,13 @@ function startup(){
          document.getElementById("b6").innerHTML = ("<ul>"+"<li>"+kiestoon+"</li>"+"<li>"+vastmob+"</li>"+"<li>"+mobvast+"</li>"+"</ul>");
     }
     function tvCheck(){
-        if (confirm("Heeft u een klacht over ons product Internet en Bellen?")){
-            
+        if (confirm("Heeft u een klacht over ons product Internet, Bellen en Televisie?")){
+            document.getElementById("c1").innerHTML = "De klant meldt problemen met de Televisie";
+            televisieCheck();
         }
+    }
+    function televisieCheck(){
+
     }
     /*
     document.writeln("<h1> Naam: " + naam + "</h1>"+"<br>");
