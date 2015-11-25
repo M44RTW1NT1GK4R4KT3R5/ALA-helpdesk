@@ -21,6 +21,7 @@ function startup(){
             document.getElementById("i1").innerHTML = "De klant meldt problemen met het internet";
             browseCheck();
         }else{
+            document.getElementById("i1").innerHTML = "De klant meldt geen problemen met het internet";
             belCheck();
         }
     }
@@ -47,6 +48,7 @@ function startup(){
             document.getElementById("b1").innerHTML = "De klant meldt problemen met Bellen";
             telefoonCheck();
         }else{
+            document.getElementById("b1").innerHTML = "De klant meldt geen problemen met Bellen";
             tvCheck();
         }
     }
@@ -80,7 +82,7 @@ function startup(){
         }
     }
     function televisieCheck(){
-
+        
     }
     /*
     document.writeln("<h1> Naam: " + naam + "</h1>"+"<br>");
