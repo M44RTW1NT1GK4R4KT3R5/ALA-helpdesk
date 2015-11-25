@@ -79,6 +79,8 @@ function startup(){
         if (confirm("Heeft u een klacht over ons product Internet, Bellen en Televisie?")){
             document.getElementById("c1").innerHTML = "De klant meldt problemen met de Televisie";
             televisieCheck();
+        } else{
+            document.getElementById("c1").innerHTML = "De klant meldt geen problemen met de Televisie";
         }
     }
     function televisieCheck(){
