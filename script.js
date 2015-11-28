@@ -1,7 +1,7 @@
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 ////\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
 function startup(){
-    var bezoekbaar;
+    var bezoekbaar, kiestoon, vastmob, mobvast;
     function klantnaam() {
         var naam = prompt("Naam klant: ");
         if (naam == null || naam.length<1){ klantnaam();}else{document.getElementById("titel").innerHTML = "Naam: " + naam;}
@@ -21,6 +21,7 @@ function startup(){
             document.getElementById("i1").innerHTML = "De klant meldt problemen met het internet";
             browseCheck();
         }else{
+            document.getElementById("i1").innerHTML = "De klant meldt geen problemen met het internet";
             belCheck();
         }
     }
@@ -28,11 +29,10 @@ function startup(){
     function browseCheck(){
         if (confirm("kunt u browsen naar www.nu.nl?")){
             bezoekbaar = "browsen naar www.nu.nl lukt";
-            document.getElementById("i2").innerHTML = bezoekbaar;
         } else{
-            bezoekbaar = "browsen naar www.nu.nl lukt niet";
-            document.getElementById("i2").innerHTML = bezoekbaar;
+            bezoekbaar = "probleem: browsen naar www.nu.nl lukt niet"; 
         }
+        document.getElementById("i2").innerHTML = bezoekbaar;
         if (confirm("Reageert de pagina snel na het indrukken van F5?")){
             document.getElementById("i3").innerHTML = "De pagina laadt";
             document.getElementById("i4").innerHTML = "...U kunt browsen de pagina`s laden snel. U heeft geen internet problemen";
@@ -44,17 +44,47 @@ function startup(){
     belCheck();
     }
     function belCheck(){
-        if (confirm("Heeft u een klacht over ons product internet?")){
-            document.getElementById("b1").innerHTML = "De klant meldt problemen met het Internet en Bellen";
+        if (confirm("Heeft u een klacht over ons product Internet en Bellen?")){
+            document.getElementById("b1").innerHTML = "De klant meldt problemen met Bellen";
             telefoonCheck();
         }else{
-            //link naar internet bellen tv
+            document.getElementById("b1").innerHTML = "De klant meldt geen problemen met Bellen";
+            tvCheck();
         }
     }
+
     function telefoonCheck(){
          if (confirm("Hoort u een kiestoon?")) {
-
+            kiestoon = "Hoort een kiestoon";
+         }  else {
+            kiestoon = "Probleem: Hoort geen kiestoon";
          }
+         document.getElementById("b2").innerHTML = kiestoon;
+         if (confirm("Kunt u uzelf bellen via een mobiel nummer?")){
+            vastmob = "Klant kan van vast naar mobiel bellen";
+         } else {
+            vastmob = "Probleem: Klant kan niet van vast naar mobiel bellen";
+         }
+         document.getElementById("b3").innerHTML = vastmob;
+         if (confirm("Kunt u uzelf bellen via een vast nummer?")){
+            mobvast = "Klant kan van mobiel naar vast bellen";
+         } else {
+            mobvast = "Probleem: Klant kan niet van mobiel naar vast bellen";
+         }
+         document.getElementById("b4").innerHTML = mobvast;
+         document.getElementById("b5").innerHTML = "...U kunt bellen naar ons. U heeft geen belproblemen";
+         document.getElementById("b6").innerHTML = ("<ul>"+"<li>"+kiestoon+"</li>"+"<li>"+vastmob+"</li>"+"<li>"+mobvast+"</li>"+"</ul>");
+    }
+    function tvCheck(){
+        if (confirm("Heeft u een klacht over ons product Internet, Bellen en Televisie?")){
+            document.getElementById("c1").innerHTML = "De klant meldt problemen met de Televisie";
+            televisieCheck();
+        } else{
+            document.getElementById("c1").innerHTML = "De klant meldt geen problemen met de Televisie";
+        }
+    }
+    function televisieCheck(){
+        
     }
     /*
     document.writeln("<h1> Naam: " + naam + "</h1>"+"<br>");
@@ -64,14 +94,9 @@ function startup(){
 
 
     (confirm("Kan oplossing bij internetproblemen tonen") ? document.write("<p> Klant kan oplossing tonen bij internetprobleem</p>"): document.write("<p> Klant kan oplossing tonen bij internetprobleem</p>"));
-    */print();
+    */
 }
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
-
-
-
-
-
 
 
 
@@ -95,7 +120,6 @@ function Click(){
     //alle code hier
 
 }
-
 
 
 
