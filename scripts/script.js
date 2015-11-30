@@ -1,7 +1,7 @@
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 ////\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
 function startup() {
-    var vandaag, bezoekbaar, kiestoon, vastmob, mobvast, aantaltv, splitter, settopbox, zenders;   //wow, zie hvl variabelen zo`n code als dit nodig heeft
+    var vandaag, bezoekbaar, modem, kiestoon, vastmob, mobvast, aantaltv, splitter, settopbox, zenders;   //wow, zie hvl variabelen zo`n code als dit nodig heeft
     var table = [];
     function klantnaam() {
         var naam = prompt("Naam klant: ");
@@ -20,7 +20,7 @@ function startup() {
 
     registerDatum(new Date());
     function modemCheck() {
-        var modem = prompt("Wat is het merk en type van uw modem?");
+        modem = prompt("Wat is het merk en type van uw modem?");
         if (modem == null || modem.length < 1) {
             modemCheck();
         } else {
@@ -108,6 +108,7 @@ function startup() {
         } else {
             document.getElementById("c1").innerHTML = "De klant meldt geen problemen met de Televisie";
             table[2] = true;
+            controle();
         }
     }
 
@@ -139,11 +140,23 @@ function startup() {
             zenders = "zenders worden gevonden";
             document.getElementById("c5").innerHTML = zenders;
             document.getElementById("c6").innerHTML = "...U heeft geen televisieproblemen.";
+            table[2] = true;
             document.getElementById("c7").innerHTML = ("<ul>" + "<li>" + "klant heeft "+ aantaltv +" televisietoestellen "+ "</li>" + "<li>" + splitter + "</li>" + "<li>" + settopbox + "</li>" + "<li>" + zenders + "</li>" + "</ul>");
         }else{
-            settopbox = "settopbox: splitter is niet goed aangesloten";
+            zenders = "settopbox: zenders worden niet gevonden";
+            document.getElementById("c5").innerHTML = zenders;
+            document.getElementById("c6").innerHTML = "U meldt problemen";
+            table[2] = false;
+            document.getElementById("c7").innerHTML =' <a href="#">Splitter aangesloten</a><br><a href="#">Settopbox aangesloten</a><br><a href="#">Zenders niet gevonden</a>';
         }
-
+        controle();
     }
+    function controle(){
+        if (table[0]!= false && table[1]!= false && table[2]!= false){
+            document.getElementById("e1").innerHTML = "U heeft geen klachten gemeld op "+vandaag;
+            document.getElementById("e2").innerHTML = "Uw modem "+modem+ " werkt prima";
+        }
+    }
+
 }
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
