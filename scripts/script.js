@@ -1,7 +1,7 @@
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 ////\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//
 function startup() {
-    var vandaag, bezoekbaar, kiestoon, vastmob, mobvast, aantaltv, splitter;   //wow, zie hvl variabelen zo`n code als dit nodig heeft
+    var vandaag, bezoekbaar, kiestoon, vastmob, mobvast, aantaltv, splitter, settopbox, zenders;   //wow, zie hvl variabelen zo`n code als dit nodig heeft
     var table = [];
     function klantnaam() {
         var naam = prompt("Naam klant: ");
@@ -126,6 +126,22 @@ function startup() {
             splitter = "splitter is goed aangesloten";
         }else{
             splitter = "Probleem: splitter is niet goed aangesloten";
+        }
+        document.getElementById("c3").innerHTML=splitter;
+
+        if (confirm("is uw settopbox goed aangesloten?")){
+            settopbox = "settopbox is goed aangesloten";
+        }else{
+            settopbox = "Probleem: settopbox is niet goed aangesloten";
+        }
+        document.getElementById("c4").innerHTML=settopbox;
+        if (confirm("worden de zenders gevonden?")){
+            zenders = "zenders worden gevonden";
+            document.getElementById("c5").innerHTML = zenders;
+            document.getElementById("c6").innerHTML = "...U heeft geen televisieproblemen.";
+            document.getElementById("c7").innerHTML = ("<ul>" + "<li>" + "klant heeft "+ aantaltv +" televisietoestellen "+ "</li>" + "<li>" + splitter + "</li>" + "<li>" + settopbox + "</li>" + "<li>" + zenders + "</li>" + "</ul>");
+        }else{
+            settopbox = "settopbox: splitter is niet goed aangesloten";
         }
 
     }
