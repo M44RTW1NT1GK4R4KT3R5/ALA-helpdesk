@@ -34,7 +34,7 @@ function startup() {
             document.getElementById("i1").innerHTML = "De klant meldt problemen met het internet";
             browseCheck();
         } else {
-            document.getElementById("i1").innerHTML = "De klant meldt geen problemen met het internet";
+            document.getElementById("i1").innerHTML = 'De klant meldt geen problemen met het internet';
             table[0] = true;
             belCheck(); //naar fase 2
         }
@@ -45,7 +45,7 @@ function startup() {
         if (confirm("kunt u browsen naar www.nu.nl?")) {
             bezoekbaar = "browsen naar www.nu.nl lukt";
         } else {
-            bezoekbaar = "probleem: browsen naar www.nu.nl lukt niet";
+            bezoekbaar = '<span class="probleem">Probleem:</span> browsen naar www.nu.nl lukt niet';
         }
         document.getElementById("i2").innerHTML = bezoekbaar;
         if (confirm("Reageert de pagina snel na het indrukken van F5?")) {
@@ -56,7 +56,7 @@ function startup() {
         } else {
             table[0] = false;
             document.getElementById("i3").innerHTML = "U meldt internetproblemen";
-            document.getElementById("i4").innerHTML = '<a href="#">Internet laden</a><br><a href="#">Snelheid van laden</a> '
+            document.getElementById("i4").innerHTML = '<a href="iladen.html">Internet laden</a><br><a href="iladen.html">Snelheid van laden</a> '
         }
         belCheck();  //naar fase 2
     }
@@ -76,13 +76,13 @@ function startup() {
         if (confirm("Hoort u een kiestoon?")) {
             kiestoon = "Hoort een kiestoon";
         } else {
-            kiestoon = "Probleem: Hoort geen kiestoon";
+            kiestoon = '<span class="probleem">Probleem:</span> Hoort geen kiestoon';
         }
         document.getElementById("b2").innerHTML = kiestoon;
         if (confirm("Kunt u uzelf bellen via een mobiel nummer?")) {
             vastmob = "Klant kan van vast naar mobiel bellen";
         } else {
-            vastmob = "Probleem: Klant kan niet van vast naar mobiel bellen";
+            vastmob = '<span class="probleem">Probleem:</span> Klant kan niet van vast naar mobiel bellen';
         }
         document.getElementById("b3").innerHTML = vastmob;
         if (confirm("Kunt u uzelf bellen via een vast nummer?")) {
@@ -92,11 +92,11 @@ function startup() {
             document.getElementById("b6").innerHTML = ("<ul>" + "<li>" + kiestoon + "</li>" + "<li>" + vastmob + "</li>" + "<li>" + mobvast + "</li>" + "</ul>");
             table[1] = true;
         } else {
-            mobvast = "Probleem: Klant kan niet van mobiel naar vast bellen";
+            mobvast = '<span class="probleem">Probleem:</span> Klant kan niet van mobiel naar vast bellen';
             document.getElementById("b4").innerHTML = mobvast;
             document.getElementById("b5").innerHTML = "...U meldt problemen";
             table[1] = false;
-            document.getElementById("b6").innerHTML = '<a href="#">Bellen herstellen</a><br><a href="#">Kiestoon hoorbaar maken</a>';
+            document.getElementById("b6").innerHTML = '<a href="telefoon.html">Bellen herstellen</a><br><a href="telefoon.html">Kiestoon hoorbaar maken</a>';
         }
         tvCheck(); //naar fase 3
     }
@@ -126,14 +126,14 @@ function startup() {
         if (confirm("is uw splitter goed aangesloten?")){
             splitter = "splitter is goed aangesloten";
         }else{
-            splitter = "Probleem: splitter is niet goed aangesloten";
+            splitter = '<span class="probleem">Probleem:</span> splitter is niet goed aangesloten';
         }
         document.getElementById("c3").innerHTML=splitter;
 
         if (confirm("is uw settopbox goed aangesloten?")){
             settopbox = "settopbox is goed aangesloten";
         }else{
-            settopbox = "Probleem: settopbox is niet goed aangesloten";
+            settopbox = '<span class="probleem">Probleem:</span> settopbox is niet goed aangesloten';
         }
         document.getElementById("c4").innerHTML=settopbox;
         if (confirm("worden de zenders gevonden?")){
@@ -143,11 +143,11 @@ function startup() {
             table[2] = true;
             document.getElementById("c7").innerHTML = ("<ul>" + "<li>" + "klant heeft "+ aantaltv +" televisietoestellen "+ "</li>" + "<li>" + splitter + "</li>" + "<li>" + settopbox + "</li>" + "<li>" + zenders + "</li>" + "</ul>");
         }else{
-            zenders = "settopbox: zenders worden niet gevonden";
+            zenders = '<span class="probleem">Probleem:</span> zenders worden niet gevonden';
             document.getElementById("c5").innerHTML = zenders;
             document.getElementById("c6").innerHTML = "U meldt problemen";
             table[2] = false;
-            document.getElementById("c7").innerHTML =' <a href="#">Splitter aangesloten</a><br><a href="#">Settopbox aangesloten</a><br><a href="#">Zenders niet gevonden</a>';
+            document.getElementById("c7").innerHTML =' <a href="televisie.html">Splitter aangesloten</a><br><a href="televisie.html">Settopbox aangesloten</a><br><a href="televisie.html">Zenders niet gevonden</a>';
         }
         controle();
     }
